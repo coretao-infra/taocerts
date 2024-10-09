@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 type DataType = {
   rowKey: string,
@@ -15,7 +16,7 @@ type DataType = {
 
 }
 
-export default function Home() {
+function CertificateContent() {
 
   const [data, setData] = useState<DataType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -105,4 +106,13 @@ export default function Home() {
           </div>}
       </main>
     </div>);
+}
+
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-xl">Loading the certificate...</div>}>
+      <CertificateContent />
+    </Suspense>
+  );
 }
