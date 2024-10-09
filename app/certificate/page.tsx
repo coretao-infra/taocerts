@@ -15,15 +15,11 @@ type DataType = {
 
 }
 
-type ErrorType = {
-  message: string
-}
-
 export default function Home() {
 
   const [data, setData] = useState<DataType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string>();
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
@@ -39,7 +35,9 @@ export default function Home() {
         const result = await response.json();
         setData(result);
       } catch (error) {
-        setError(error.message);
+        if (error instanceof Error) {
+          setError(error.message);
+        }
       } finally {
         setIsLoading(false);
       }
