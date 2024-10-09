@@ -51,10 +51,6 @@ export default function Home() {
 
   const user = data.find((user) => user.rowKey === id);
 
-
-
-
-
   return (
     <div>
       <main className="w-full h-screen flex justify-center items-center">
