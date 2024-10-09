@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'Signature';
+  /* Replace with your font's name */
+  src: url('/Signature.otf') format('opentype');
+  /* Path to the .otf file */
+  font-weight: normal;
+  /* Specify the weight */
+  font-style: normal;
+  /* Specify the style (normal/italic) */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

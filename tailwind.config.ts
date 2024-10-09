@@ -11,7 +11,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        unicef: '#1BAAE3',
       },
+      fontFamily: {
+        signature: ['Signature', 'sans-serif'],
+      }
     },
   },
   plugins: [],
