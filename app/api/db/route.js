@@ -1,7 +1,9 @@
 import { TableClient, AzureNamedKeyCredential } from "@azure/data-tables";
 import { NextResponse } from 'next/server';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function GET() {
+    noStore();
     const account = process.env.AZURE_STORAGE_ACCOUNT_NAME;
     const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
     const tableName = process.env.AZURE_TABLE_NAME;
@@ -27,3 +29,7 @@ export async function GET() {
         return NextResponse.json({ error: "Error fetching data" }, { status: 500 });
     }
 }
+
+export const config = {
+    runtime: 'edge',
+};
