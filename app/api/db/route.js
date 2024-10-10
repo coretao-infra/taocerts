@@ -8,6 +8,10 @@ export async function GET() {
     const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
     const tableName = process.env.AZURE_TABLE_NAME;
 
+    console.log("AZURE_STORAGE_ACCOUNT_NAME:", account);
+    console.log("AZURE_TABLE_NAME:", tableName);
+    // console.log("AZURE_STORAGE_ACCOUNT_KEY:", accountKey);
+    
     const credential = new AzureNamedKeyCredential(account, accountKey);
     const client = new TableClient(
         `https://${account}.table.core.windows.net`,
