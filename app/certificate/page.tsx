@@ -61,11 +61,15 @@ function CertificateContent() {
               <div className="absolute inset-0 bg-[url('/certificate/summit.png')] bg-no-repeat bg-right bg-cover opacity-5"></div>
               <div className="flex justify-center h-full">
                 <div className="w-[400px] h-full pt-32 ">
+                  <div className="flex justify-between items-center">
                   <div className="flex gap-2 items-center">
-
                     <div className="w-5 h-5 bg-unicef"></div>
                     <div className="font-bold tracking-tight text-lg pr-2 border-r-4 border-blue-400">TeamOne</div>
                     <div className="text-gray-700 font-semibold">Virtual Summits</div>
+                  </div>
+                    <div className="-mt-2">
+                      <Image src="/certificate/uniceflogo.png" width={120} height={120} alt="UNICEF" />
+                    </div>
                   </div>
                   <div className="pt-4">
                     <div className="text-6xl uppercase tracking-tight font-semibold text-gray-700">Certificate</div>
