@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { toLogo } from "@/app/certificate/img/tologo.png";
-
 type DataType = {
   rowKey: string,
   partitionKey: string,
@@ -60,7 +58,7 @@ function CertificateContent() {
         {user !== undefined ? <div className="w-[1000px] h-[700px] shadow-md relative">
           <div className="flex h-full">
             <div className="bg-white w-[750px] h-full">
-              <div className="absolute inset-0 bg-[url('/certificate/summit.png')] bg-no-repeat bg-right bg-cover opacity-5"></div>
+              <div className="absolute inset-0 bg-[url('/summit.png')] bg-no-repeat bg-right bg-cover opacity-5"></div>
               <div className="flex justify-center h-full">
                 <div className="w-[400px] h-full pt-32 ">
                   <div className="flex gap-2 items-center">
@@ -94,10 +92,10 @@ function CertificateContent() {
                 </div>
               </div>
               <div className="absolute left-[675px] top-[100px] h-[200px] w-[200px]">
-                <Image src="/certificate/summit.png" width={200} height={200} alt="TeamOne" />
+                <Image src="/summit.png" width={200} height={200} alt="TeamOne" />
               </div>
               <div className="absolute left-[725px] top-[500px] h-[100px] w-[100px] border-4 border-unicef">
-                <Image src='/certificate/tologo.png' width={150} height={150} alt="TeamOne" />
+                <Image src="/tologo.png" width={150} height={150} alt="TeamOne" />
               </div>
             </div>
             <div className="w-[50px] h-full bg-unicef"></div>
