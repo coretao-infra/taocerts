@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { toLogo } from "@/app/certificate/img/tologo.png";
-
 type DataType = {
   rowKey: string,
   partitionKey: string,
