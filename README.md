@@ -2,7 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+For a local environment, first, install nvm and then use npm to install the requirements.
+Clone the repo locally and add a .env.local file to the root of the project
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<accountname>
+AZURE_STORAGE_ACCOUNT_KEY="<accountkey>"
+AZURE_TABLE_NAME=<azuretablename>
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev

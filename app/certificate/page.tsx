@@ -82,7 +82,7 @@ function CertificateContent() {
                       <div className="w-[400px] border-b-4 border-unicef"></div>
                       <div className="mt-5 text-lg">For engaging with us in our </div>
                       <div className="text-xl tracking-tighter font-semibold text-blue-950">{user.course}</div>
-                      <div className="text-lg "> which took place on August 27 - 29, 2024</div>
+                      <div className="text-lg "> which took place on August 27 - 29, 2024.</div>
                       <div></div>
                     </div>
                     <div className="text-center mt-10">
