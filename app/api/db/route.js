@@ -1,5 +1,5 @@
 import { TableClient, AzureNamedKeyCredential } from "@azure/data-tables";
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export async function GET(request) {
