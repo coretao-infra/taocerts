@@ -54,7 +54,7 @@ function CertificateContent() {
 
   return (
     <div>
-      <main className="w-full h-screen flex justify-center items-center">
+      <main className="w-full h-screen flex justify-center items-center text-black">
         {user !== undefined ? <div className="w-[1000px] h-[700px] shadow-md relative">
           <div className="flex h-full">
             <div className="bg-white w-[750px] h-full">
@@ -62,11 +62,11 @@ function CertificateContent() {
               <div className="flex justify-center h-full">
                 <div className="w-[400px] h-full pt-32 ">
                   <div className="flex justify-between items-center">
-                  <div className="flex gap-2 items-center">
-                    <div className="w-5 h-5 bg-unicef"></div>
-                    <div className="font-bold tracking-tight text-lg pr-2 border-r-4 border-blue-400">TeamOne</div>
-                    <div className="text-gray-700 font-semibold">Virtual Summits</div>
-                  </div>
+                    <div className="flex gap-2 items-center">
+                      <div className="w-5 h-5 bg-unicef"></div>
+                      <div className="font-bold tracking-tight text-lg pr-2 border-r-4 border-blue-400">TeamOne</div>
+                      <div className="text-gray-700 font-semibold">Virtual Summits</div>
+                    </div>
                     <div className="-mt-2">
                       <Image src="/certificate/uniceflogo.png" width={120} height={120} alt="UNICEF" />
                     </div>
