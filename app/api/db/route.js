@@ -1,9 +1,13 @@
 import { TableClient, AzureNamedKeyCredential } from "@azure/data-tables";
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { unstable_noStore as noStore } from 'next/cache';
 
-export async function GET() {
+export async function GET(request) {
     noStore();
+    // Get const course for course parameter
+    const searchParams = request.nextUrl.searchParams;
+    const course = searchParams.get('course');
+
     const account = process.env.AZURE_STORAGE_ACCOUNT_NAME;
     const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
     const tableName = process.env.AZURE_TABLE_NAME;
@@ -11,11 +15,13 @@ export async function GET() {
     console.log("AZURE_STORAGE_ACCOUNT_NAME:", account);
     console.log("AZURE_TABLE_NAME:", tableName);
     // console.log("AZURE_STORAGE_ACCOUNT_KEY:", accountKey);
-    
+
+    const tableNameNew = course ? course : tableName;
+
     const credential = new AzureNamedKeyCredential(account, accountKey);
     const client = new TableClient(
         `https://${account}.table.core.windows.net`,
-        tableName,
+        tableNameNew,
         credential
     );
 
@@ -33,5 +39,3 @@ export async function GET() {
         return NextResponse.json({ error: "Error fetching data" }, { status: 500 });
     }
 }
-
-// export const runtime = "edge";

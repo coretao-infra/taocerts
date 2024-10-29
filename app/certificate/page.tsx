@@ -24,12 +24,15 @@ function CertificateContent() {
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
+  const course = searchParams.get('course');
+
 
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/db');
+
+        const response = await fetch(`/api/db${course ? `?course=${course}` : ''}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
