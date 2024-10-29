@@ -13,6 +13,7 @@ type DataType = {
   course: string,
   sme_name: string,
   sme_role: string,
+  date: string,
 
 }
 
@@ -25,8 +26,6 @@ function CertificateContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const course = searchParams.get('course');
-
-
 
   useEffect(() => {
     async function fetchData() {
@@ -48,7 +47,7 @@ function CertificateContent() {
     }
 
     fetchData();
-  }, []);
+  }, [course]);
 
   if (isLoading) return <div className="w-full h-screen flex items-center justify-center text-xl">Loading the certificate...</div>;
   if (error) return <div>Error when trying to connect: {error}</div>;
@@ -85,7 +84,7 @@ function CertificateContent() {
                       <div className="w-[400px] border-b-4 border-unicef"></div>
                       <div className="mt-5 text-lg">For engaging with us in our </div>
                       <div className="text-xl tracking-tighter font-semibold text-blue-950">{user.course}</div>
-                      <div className="text-lg "> which took place on August 27 - 29, 2024.</div>
+                      <div className="text-lg "> which took place on {user.date ? user.date : "August 27 - 29, 2024"}.</div>
                       <div></div>
                     </div>
                     <div className="text-center mt-10">
