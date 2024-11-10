@@ -3,23 +3,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-
-type DataType = {
-  rowKey: string,
-  partitionKey: string,
-  timestamp: string,
-  name: string,
-  email: string,
-  course: string,
-  sme_name: string,
-  sme_role: string,
-  date: string,
-
-}
+import { UserType } from "@/types/user";
 
 function CertificateContent() {
 
-  const [data, setData] = useState<DataType[]>([]);
+  const [data, setData] = useState<UserType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string>();
 
