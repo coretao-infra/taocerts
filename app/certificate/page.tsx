@@ -40,6 +40,49 @@ function CertificateContent() {
   if (isLoading) return <div className="w-full h-screen flex items-center justify-center text-xl">Loading the certificate...</div>;
   if (error) return <div>Error when trying to connect: {error}</div>;
 
+  const typeOfCourse = (course: string) => {
+    switch (course) {
+      case 'cwn':
+        return "Workshop";
+      default:
+        return "Virtual Summits";
+    }
+  }
+
+  const getCourseLogo = (course: string | null) => {
+    switch (course) {
+      case 'cwn':
+        return {
+          img: '/certificate/cloudfirst.png',
+          className: 'bg-white py-5 rounded-xl bg-opacity-90'
+        }
+      default:
+        return {
+          img: '/certificate/summit.png',
+          className: 'py-5 rounded-xl bg-opacity-90'
+        }
+    }
+  }
+
+  const IntiativeLogo = () => {
+    const courseInfo = getCourseLogo(course);
+    return (
+      <div className="absolute left-[675px] top-[100px] h-[200px] w-[200px] ">
+        <Image className={courseInfo.className} src={courseInfo.img} width={200} height={200} alt="TeamOne" />
+      </div>
+    )
+  }
+
+  const MainBgLogo = () => {
+    const courseInfo = getCourseLogo(course);
+
+    return (
+      <div className={`absolute inset-0 bg-no-repeat bg-right bg-cover opacity-5`} style={{
+        backgroundImage: `url(${courseInfo.img})`
+      }}></div>
+    )
+  }
+
   const user = data.find((user) => user.rowKey === id);
 
   return (
@@ -48,14 +91,14 @@ function CertificateContent() {
         {user !== undefined ? <div className="w-[1000px] h-[700px] shadow-md relative">
           <div className="flex h-full">
             <div className="bg-white w-[750px] h-full">
-              <div className="absolute inset-0 bg-[url('/certificate/summit.png')] bg-no-repeat bg-right bg-cover opacity-5"></div>
+              <MainBgLogo />
               <div className="flex justify-center h-full">
                 <div className="w-[400px] h-full pt-32 ">
                   <div className="flex justify-between items-center">
                     <div className="flex gap-2 items-center">
                       <div className="w-5 h-5 bg-unicef"></div>
                       <div className="font-bold tracking-tight text-lg pr-2 border-r-4 border-blue-400">TeamOne</div>
-                      <div className="text-gray-700 font-semibold">Virtual Summits</div>
+                      <div className="text-gray-700 font-semibold">{course && typeOfCourse(course)}</div>
                     </div>
                     <div className="-mt-2">
                       <Image src="/certificate/uniceflogo.png" width={120} height={120} alt="UNICEF" />
@@ -86,9 +129,7 @@ function CertificateContent() {
                   </div>
                 </div>
               </div>
-              <div className="absolute left-[675px] top-[100px] h-[200px] w-[200px]">
-                <Image src="/certificate/summit.png" width={200} height={200} alt="TeamOne" />
-              </div>
+              <IntiativeLogo />
               <div className="absolute left-[725px] top-[500px] h-[100px] w-[100px] border-4 border-unicef">
                 <Image src='/certificate/tologo.png' width={150} height={150} alt="TeamOne" />
               </div>
